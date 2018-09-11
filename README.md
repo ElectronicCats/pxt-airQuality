@@ -40,7 +40,7 @@ The CCS811 air quality sensors communicates via I2C. The data returned as a numb
 * ``|HWID|``block is used to test the most basic read on the I2C line. Use if you are having probelms establishing communication. 
 
 ### Example Project:
-The following project will read the eCO2 and TVOCs data and then display it on the 5x5 LED matrix. 
+The following project will read the eCO2 and TVOCs data. 
 
 ```blocks
 let eCO2 = 0
