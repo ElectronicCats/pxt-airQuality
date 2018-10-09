@@ -7,6 +7,9 @@ This package adds functionality to the CCS811 board. Based in the work of [AData
 
 This package is still under development and subject to changes. 
 
+
+Electronic Cats invests time and resources providing this open source design, please support Electronic Cats and open-source hardware by purchasing products from Electronic Cats!
+
 ### ~
 
 
@@ -51,7 +54,9 @@ loop.forever(() => {
     loop.pause(1000)
 })
 ```
+## Maintainer
 
+[Electronic Cats](https://github.com/ElectronicCats)
 
 ## License
 
