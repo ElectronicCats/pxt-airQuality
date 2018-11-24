@@ -5,7 +5,10 @@
     "license": "MIT",
     "files": [
         "README.md",
-        "airQuality.ts"
+        "pxtparts.json",
+        "airQuality.ts",
+        "parts/ccs811.svg",
+        "pxtparts.json"
     ],
     "testFiles": [
 
