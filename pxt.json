@@ -7,8 +7,7 @@
         "README.md",
         "pxtparts.json",
         "airQuality.ts",
-        "parts/ccs811.svg",
-        "pxtparts.json"
+        "parts/airQuality.svg"
     ],
     "testFiles": [
 

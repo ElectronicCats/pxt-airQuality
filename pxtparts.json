@@ -1,7 +1,7 @@
 {
-    "bme280": {
+    "airQuality": {
         "visual": {
-            "image": "parts/ccs811.svg",
+            "image": "parts/airQuality.svg",
             "width": 58,
             "height": 64,
             "pinDistance": 7.2,
