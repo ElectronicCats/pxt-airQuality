@@ -2,8 +2,8 @@
     "airQuality": {
         "visual": {
             "image": "parts/airQuality.svg",
-            "width": 58,
-            "height": 64,
+            "width": 63,
+            "height": 63,
             "pinDistance": 7.2,
             "pinLocations": [
                 {"x": 21, "y": 5},
