@@ -9,9 +9,7 @@
         "airQuality.ts",
         "parts/airQuality.svg"
     ],
-    "testFiles": [
-
-    ],
+    "testFiles": [],
     "public": true,
     "dependencies": {
         "core": "*"
