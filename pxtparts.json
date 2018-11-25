@@ -23,8 +23,8 @@
         "pinDefinitions": [
             {"target": "SDA", "style": "male", "orientation": "+Y" },
             {"target": "SCL", "style": "male", "orientation": "+Y" },
-            {"target": "GND", "style": "male", "orientation": "+Y" },
-            {"target": "3.3V", "style": "male", "orientation": "+Y" }
+            {"target": "ground", "style": "male", "orientation": "+Y" },
+            {"target": "threeVolt", "style": "male", "orientation": "+Y" }
         ],
         "assembly": [
             {"pinIndices": [0, 1, 2, 3]}
