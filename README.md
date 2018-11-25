@@ -3,15 +3,7 @@
 This package adds functionality to the CCS811 board. Based in the work of [ADataDate](https://github.com/ADataDate/pxt-airQuality)
 
 
-### ~
-
-This package is still under development and subject to changes. 
-
-
 Electronic Cats invests time and resources providing this open source design, please support Electronic Cats and open-source hardware by purchasing products from Electronic Cats!
-
-### ~
-
 
 ### Usage 
 
@@ -22,7 +14,7 @@ Electronic Cats invests time and resources providing this open source design, pl
 * The eCO2 (equivalent CO2) is presented as a number between 400ppm to 8192ppm. 
 
 
-### SAMD21 Pins Used 
+### Pins Used 
 
 *  --  I2C - SCL
 *  --  I2C - SDA 
@@ -43,6 +35,7 @@ The CCS811 air quality sensors communicates via I2C. The data returned as a numb
 * ``|HWID|``block is used to test the most basic read on the I2C line. Use if you are having probelms establishing communication. 
 
 ### Example Project:
+
 The following project will read the eCO2 and TVOCs data. 
 
 ```blocks
@@ -54,6 +47,9 @@ loop.forever(() => {
     loop.pause(1000)
 })
 ```
+
+![MakerCode](https://github.com/ElectronicCats/pxt-airQuality/raw/master/example_MakeCodeMaker.png)
+![Microbit](https://github.com/ElectronicCats/pxt-airQuality/raw/master/example_Microbit.png)
 ## Maintainer
 
 [Electronic Cats](https://github.com/ElectronicCats)
