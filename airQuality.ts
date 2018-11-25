@@ -52,7 +52,7 @@ namespace airQuality {
      */
 
     //% weight=1 blockId="hardwareID" block="HWID"
-    //% parts=airQuality
+    //% parts=airQuality trackArgs=0
     export function hardwareID(): number {
         let hardwareId = readCCSReg(0x20, NumberFormat.UInt8LE)
         return hardwareId
@@ -65,7 +65,7 @@ namespace airQuality {
      */
 
     //% weight=100 blockId="readCo2" block="Read eCO2"
-    //% parts=airQuality
+    //% parts=airQuality trackArgs=0
     export function readCo2(): number {
         //read Algorithm Results register
 
@@ -79,7 +79,7 @@ namespace airQuality {
      */
 
     //% weight=90 blockId="readTvoc" block="Read TVOCs"
-    //% parts=airQuality
+    //% parts=airQuality trackArgs=0
     export function readTvoc(): number {
         //read Algorithm Results register
         let algRes = readCCSReg(ccsAlg, NumberFormat.Int32BE)
@@ -88,7 +88,7 @@ namespace airQuality {
     }
 
     //% weight=2 blockId="readStatus" block="Device Status"
-    //% parts=airQuality
+    //% parts=airQuality trackArgs=0
     export function readStatus(): number {
         //Return status of Device
         let status = readCCSReg(ccsStatus, NumberFormat.UInt8LE)
@@ -100,7 +100,7 @@ namespace airQuality {
      * any problems with device
      */
     //% weight=3 blockId="readError" block="Device Error"
-    //% parts=airQuality
+    //% parts=airQuality trackArgs=0
     export function readError(): number {
         //Return Error of Device
         let error = readCCSReg(ccsErr, NumberFormat.Int8LE)
@@ -132,7 +132,7 @@ namespace airQuality {
      */
 
     //% weight=100 blockId="AppStart" block="CCS811 Start"
-    //% parts=airQuality
+    //% parts=airQuality trackArgs=0
     export function appStart(): void {
 		if (appStarted) return;
 		
