@@ -51,7 +51,7 @@ namespace airQuality {
      *  Easy test for ensuring I2C read is working
      */
 
-    //% weight=1 blockId="hardwareID" block="HWID"
+    //% weight=1 blockId="AIRQUALITY_HARDWAREID" block="HWID"
     //% parts=airQuality trackArgs=0
     export function hardwareID(): number {
         let hardwareId = readCCSReg(0x20, NumberFormat.UInt8LE)
@@ -64,7 +64,7 @@ namespace airQuality {
      * of the CCS811 Air Quality Sensor
      */
 
-    //% weight=100 blockId="readCo2" block="Read eCO2"
+    //% weight=100 blockId="AIRQUALITY_READCO2" block="Read eCO2"
     //% parts=airQuality trackArgs=0
     export function readCo2(): number {
         //read Algorithm Results register
@@ -78,7 +78,7 @@ namespace airQuality {
      * of the CCS811 Air Quality Sensor
      */
 
-    //% weight=90 blockId="readTvoc" block="Read TVOCs"
+    //% weight=90 blockId="AIRQUALITY_READTVOC" block="Read TVOCs"
     //% parts=airQuality trackArgs=0
     export function readTvoc(): number {
         //read Algorithm Results register
@@ -87,7 +87,7 @@ namespace airQuality {
         return Tvoc
     }
 
-    //% weight=2 blockId="readStatus" block="Device Status"
+    //% weight=2 blockId="AIRQUALITY_READSTATUS" block="Device Status"
     //% parts=airQuality trackArgs=0
     export function readStatus(): number {
         //Return status of Device
@@ -99,7 +99,7 @@ namespace airQuality {
      * Read the device error code if there are
      * any problems with device
      */
-    //% weight=3 blockId="readError" block="Device Error"
+    //% weight=3 blockId="AIRQUALITY_READERROR" block="Device Error"
     //% parts=airQuality trackArgs=0
     export function readError(): number {
         //Return Error of Device
@@ -131,7 +131,7 @@ namespace airQuality {
      * to pull data into Algorithm register every second. 
      */
 
-    //% weight=100 blockId="AppStart" block="CCS811 Start"
+    //% weight=100 blockId="AIRQUALITY_APPSTART" block="CCS811 Start"
     //% parts=airQuality trackArgs=0
     export function appStart(): void {
 		if (appStarted) return;
