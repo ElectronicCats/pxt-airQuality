@@ -3,6 +3,8 @@
 * 8 octuber 2018 
 * https://www.electroniccats.com 
 
+https://github.com/ElectronicCats/pxt-airQuality
+
 * Based in the work of Mary West @ SparkFun Electronics 
 * Ryan Mortenson https://github.com/ryanjmortenson
 * August 25, 2017
@@ -23,14 +25,18 @@
  * Functions to operate the CCS811
  */
 
+enum CCS811_I2C_ADDRESS {
+    //% block="0x5A"
+    ADDR_0x5A = 0x5A,
+    //% block="0x5B"
+    ADDR_0x5B = 0x5B
+}
+
 //% color=#33acff icon="\u27BE"
 namespace airQuality {
 
-	//Keep track of CCS811 Start 
-	let appStarted = false;
-
     //CCS811 Addresses
-    const ccsAddr = 0x5A
+    let ccsAddr = 0x5A
     const ccsStatus = 0x00
     const ccsMeas = 0x01
     const ccsAlg = 0x02
@@ -47,13 +53,21 @@ namespace airQuality {
     const ccsApps = 0xF4
     const ccsReset = 0xFF
 
+    function init() {
+        pins.i2cWriteNumber(ccsAddr, ccsApps, NumberFormat.Int8LE)
+        writeCCSReg(ccsMeas, 0x10)
+    }
+    
 	/**
      *  Easy test for ensuring I2C read is working
      */
-
     //% weight=1 blockId="AIRQUALITY_HARDWAREID" block="HWID"
     //% parts=airQuality trackArgs=0
     export function hardwareID(): number {
+        if (!ccsAddr) {  // lazy init
+            ccsAddr = CCS811_I2C_ADDRESS.ADDR_0x5A;
+            init();
+        }
         let hardwareId = readCCSReg(0x20, NumberFormat.UInt8LE)
         return hardwareId
     }
@@ -67,8 +81,11 @@ namespace airQuality {
     //% weight=100 blockId="AIRQUALITY_READCO2" block="Read eCO2"
     //% parts=airQuality trackArgs=0
     export function readCo2(): number {
+        if (!ccsAddr) {  // lazy init
+            ccsAddr = CCS811_I2C_ADDRESS.ADDR_0x5A;
+            init();
+        }
         //read Algorithm Results register
-
         let algRes = readCCSReg(ccsAlg, NumberFormat.UInt16BE)
         return algRes
     }
@@ -81,6 +98,10 @@ namespace airQuality {
     //% weight=90 blockId="AIRQUALITY_READTVOC" block="Read TVOCs"
     //% parts=airQuality trackArgs=0
     export function readTvoc(): number {
+        if (!ccsAddr) {  // lazy init
+            ccsAddr = CCS811_I2C_ADDRESS.ADDR_0x5A;
+            init();
+        }
         //read Algorithm Results register
         let algRes = readCCSReg(ccsAlg, NumberFormat.Int32BE)
         let Tvoc = (algRes & 0x0000FFFF)
@@ -90,6 +111,10 @@ namespace airQuality {
     //% weight=2 blockId="AIRQUALITY_READSTATUS" block="Device Status"
     //% parts=airQuality trackArgs=0
     export function readStatus(): number {
+        if (!ccsAddr) {  // lazy init
+            ccsAddr = CCS811_I2C_ADDRESS.ADDR_0x5A;
+            init();
+        }
         //Return status of Device
         let status = readCCSReg(ccsStatus, NumberFormat.UInt8LE)
         return status
@@ -102,6 +127,10 @@ namespace airQuality {
     //% weight=3 blockId="AIRQUALITY_READERROR" block="Device Error"
     //% parts=airQuality trackArgs=0
     export function readError(): number {
+        if (!ccsAddr) {  // lazy init
+            ccsAddr = CCS811_I2C_ADDRESS.ADDR_0x5A;
+            init();
+        }
         //Return Error of Device
         let error = readCCSReg(ccsErr, NumberFormat.Int8LE)
         return error
@@ -125,21 +154,15 @@ namespace airQuality {
         return val
     }
 
-
-	/**
-     * Gets the CCS811 into app mode, and sets the measure register
-     * to pull data into Algorithm register every second. 
-     */
-
-    //% weight=100 blockId="AIRQUALITY_APPSTART" block="CCS811 Start"
+    /**
+    * set I2C address
+    */
+    //% blockId="AIRQUALITY_SET_ADDRESS" block="set address %addr"
+    //% weight=50 blockGap=8
     //% parts=airQuality trackArgs=0
-    export function appStart(): void {
-		if (appStarted) return;
-		
-        pins.i2cWriteNumber(ccsAddr, ccsApps, NumberFormat.Int8LE)
-        writeCCSReg(ccsMeas, 0x10)
-		
-		//init once 
-		appStarted = true;
+    export function setAddress(addr: CCS811_I2C_ADDRESS) {
+        if (ccsAddr != addr) {
+            ccsAddr = addr
+        }
     }
 }
