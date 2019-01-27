@@ -2,9 +2,9 @@
 * Andrés Sabas @ Electronic Cats
 * 8 octuber 2018 
 * https://www.electroniccats.com 
-
-https://github.com/ElectronicCats/pxt-airQuality
-
+*
+*https://github.com/ElectronicCats/pxt-airQuality
+*
 * Based in the work of Mary West @ SparkFun Electronics 
 * Ryan Mortenson https://github.com/ryanjmortenson
 * August 25, 2017
