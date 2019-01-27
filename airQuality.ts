@@ -34,9 +34,8 @@ enum CCS811_I2C_ADDRESS {
 
 //% color=#33acff icon="\u27BE"
 namespace airQuality {
-
+    let ccsAddr = 0x00
     //CCS811 Addresses
-    let ccsAddr = 0x5A
     const ccsStatus = 0x00
     const ccsMeas = 0x01
     const ccsAlg = 0x02
@@ -56,6 +55,7 @@ namespace airQuality {
     function init() {
         pins.i2cWriteNumber(ccsAddr, ccsApps, NumberFormat.Int8LE)
         writeCCSReg(ccsMeas, 0x10)
+        console.log("Init")
     }
     
 	/**
