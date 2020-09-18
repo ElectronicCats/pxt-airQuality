@@ -1,7 +1,3 @@
-<a href="https://github.com/sponsors/ElectronicCats">
-  <img src="https://electroniccats.com/wp-content/uploads/2020/07/Badge_GHS.png" height="104" />
-</a>
-
 # airQuality
 
 This package adds functionality to the CCS811 board. Based in the work of [ADataDate](https://github.com/ADataDate/pxt-airQuality)
@@ -23,15 +19,9 @@ Electronic Cats invests time and resources providing this open source design, pl
 *  --  I2C - SCL
 *  --  I2C - SDA 
 
-### CCS811 Start Function 
-
-The first block in the AirQuality package is the |CCS811 Start| block. At the start of any program which will use the air quality sensor place the |CCS811 Start| block in a 
-"Forever" block above the rest of your code.
-
 ### Air Quality Data
  
-The CCS811 air quality sensors communicates via I2C. The data returned as a number can be stored in a variable, displayed on the 5x5 LED Matrix or sent serially to OpenLog. 
-* ``|CCS811 Start|``block sets the CCS811 sensor into APP MODE - basically turns it on and ready to transmit data
+The CCS811 air quality sensors communicates via I2C. The data returned as a number can be stored in a variable, displayed on the 5x5 LED Matrix or sent serially to OpenLog.
 * ``|Read eCO2|``block reads the equivalent CO2 and can be any number between 400ppm and 8182ppm. 
 * ``|Read TVOCs|``block reads the total organic volatile compounds and can be any number between 0ppb to 1187ppb. 
 * ``|Device Error|``block is used while troubleshooting otherwise don't use it. It will return a number corresponding to a specific error on the CCS811.
@@ -55,8 +45,11 @@ loop.forever(() => {
 ![MakerCode](https://github.com/ElectronicCats/pxt-airQuality/raw/master/example_MakeCodeMaker.png)
 ![Microbit](https://github.com/ElectronicCats/pxt-airQuality/raw/master/example_Microbit.png)
 ## Maintainer
+<a href="https://github.com/sponsors/ElectronicCats">
+  <img src="https://electroniccats.com/wp-content/uploads/2020/07/Badge_GHS.png" height="104" />
+</a>
 
-[Electronic Cats](https://github.com/ElectronicCats)
+Electronic Cats invests time and resources providing this open source design, please support Electronic Cats and open-source hardware by purchasing products from Electronic Cats!
 
 ## License
 
