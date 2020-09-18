@@ -2,9 +2,6 @@
 
 This package adds functionality to the CCS811 board. Based in the work of [ADataDate](https://github.com/ADataDate/pxt-airQuality)
 
-
-Electronic Cats invests time and resources providing this open source design, please support Electronic Cats and open-source hardware by purchasing products from Electronic Cats!
-
 ### Usage 
 
 * The CCS811 Air Quality Sensor can be directly mated to the matching pins (I2C) of the SAMD21 system. 
