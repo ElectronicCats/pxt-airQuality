@@ -53,8 +53,17 @@ namespace airQuality {
     const ccsReset = 0xFF
 
     function init() {
+
+        //Reset Sequence
+        writeCCSReg(0xFF, 0x11)
+        writeCCSReg(0xFF, 0xE5)
+        writeCCSReg(0xFF, 0x72)
+        writeCCSReg(0xFF, 0x8A)
+        basic.pause(100)
+
         pins.i2cWriteNumber(ccsAddr, ccsApps, NumberFormat.Int8LE)
         writeCCSReg(ccsMeas, 0x10)
+        
         console.log("Init")
     }
     

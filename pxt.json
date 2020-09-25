@@ -3,6 +3,9 @@
     "version": "0.1.3",
     "description": "Sensor CCS811 for airQuality",
     "license": "MIT",
+    "dependencies": {
+        "core": "*"
+    },
     "files": [
         "README.md",
         "pxtparts.json",
@@ -11,8 +14,9 @@
     ],
     "testFiles": [],
     "public": true,
-    "dependencies": {
-        "core": "*"
-    },
-    "installedVersion": "workspace:7c0ac484-5125-43b5-9369-f869378c625b"
+    "supportedTargets": [
+        "microbit"
+    ],
+    "preferredEditor": "tsprj"
+
 }
